@@ -1,0 +1,201 @@
+/* The Calm Home Network Handbook — stylesheet.
+   Calm palette, generous spacing, clear type. No animation, no tracking. */
+
+:root {
+  --ink: #2c2f33;
+  --soft-ink: #5a5f66;
+  --paper: #faf9f6;
+  --card: #ffffff;
+  --accent: #3d6b5e;      /* calm deep green */
+  --accent-soft: #e5efe9;
+  --line: #e3ded6;
+  --warn: #8a5a2b;
+  --warn-soft: #f6ecdd;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Georgia", "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+a { color: var(--accent); }
+a:hover { color: #2d5348; }
+
+code, pre {
+  font-family: "SF Mono", "Consolas", "Menlo", monospace;
+  font-size: 0.9em;
+}
+code {
+  background: var(--accent-soft);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+pre {
+  background: #f2f0ea;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+
+/* ---- header / nav ---- */
+
+.site-header {
+  padding: 2rem 1.5rem 0.6rem;
+  text-align: center;
+}
+.brand {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--ink);
+  letter-spacing: 0.2px;
+}
+.tagline {
+  margin: 0.3rem 0 0;
+  color: var(--soft-ink);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.site-nav {
+  margin: 1.2rem auto 0;
+  max-width: 60rem;
+  padding: 0 1rem;
+}
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  justify-content: center;
+}
+.site-nav a {
+  display: inline-block;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: var(--soft-ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+}
+.site-nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ---- main content ---- */
+
+.content {
+  max-width: 44rem;
+  margin: 1.6rem auto 3rem;
+  padding: 1rem 1.2rem 2rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.content h1 {
+  font-size: 1.8rem;
+  line-height: 1.25;
+  margin-top: 0.8rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.5rem;
+}
+.content h2 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+.content h3 {
+  font-size: 1.08rem;
+  margin-top: 1.6rem;
+}
+.content h4 { font-size: 1rem; }
+
+.content p, .content li { color: var(--ink); }
+
+.content blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+}
+.content blockquote p { margin: 0.4rem 0; }
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4rem 0;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 0.9rem;
+}
+.content th, .content td {
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+.content th {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.content tbody tr:nth-child(odd) { background: #fdfcfa; }
+
+.content li { margin: 0.25rem 0; }
+
+/* checkbox lists on the worksheets */
+.content li input[type="checkbox"] { margin-right: 0.4em; }
+.content .blank-fill {
+  display: inline-block;
+  width: 9em;
+  border-bottom: 1px solid var(--soft-ink);
+}
+.content input[type="text"], .content input:not([type]) {
+  border: none;
+  border-bottom: 1px solid var(--soft-ink);
+  background: transparent;
+  padding: 0.15em 0.2em;
+  min-width: 8em;
+  font: inherit;
+}
+
+/* callout-ish paragraphs starting with "Practical tip:" etc. */
+.content strong { color: #1e2b26; }
+
+/* ---- footer ---- */
+
+.site-footer {
+  max-width: 44rem;
+  margin: 0 auto 2rem;
+  padding: 1rem 1.2rem;
+  color: var(--soft-ink);
+  font-size: 0.85rem;
+  text-align: center;
+}
+.site-footer p { margin: 0.3rem 0; }
+
+/* ---- print (worksheets and flowcharts) ---- */
+
+@media print {
+  body { background: #fff; }
+  .site-nav, .site-footer { display: none; }
+  .content { border: none; max-width: none; margin: 0; padding: 0; }
+}
+
+/* ---- small screens ---- */
+
+@media (max-width: 520px) {
+  .content { margin: 1rem 0.6rem 2rem; padding: 1rem 0.9rem 1.6rem; }
+  .content h1 { font-size: 1.5rem; }
+  .site-nav ul { gap: 0.3rem 0.5rem; }
+  .site-nav a { font-size: 0.76rem; padding: 0.22rem 0.6rem; }
+}
